@@ -1,0 +1,1 @@
+Mama Chores server version. Needs Netlify environment variables VAPID_PUBLIC, VAPID_PRIVATE (secret), VAPID_SUBJECT (mailto:you@example.com). If Netlify rejects the every-minute schedule, change '* * * * *' to '*/5 * * * *' in netlify/functions/send-due.mjs.

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mama Chores</title>
+<meta name="theme-color" content="#d4477d">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Mama Chores">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" id="ic" href="data:,"><link rel="apple-touch-icon" id="ai" href="data:,">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@500;700;800&display=swap">
+<style>
+:root{--bg:#fff7f1;--card:#fff;--ink:#3b2630;--mut:#8a7480;--rose:#d4477d;--rose2:#fde3ec;--sage:#4f8a60;--sage2:#e3f1e6;--line:#f0dde4;--gold:#f2b84b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#201519;--card:#2c1d23;--ink:#f7e9ee;--mut:#b99ba7;--rose:#ef7aa3;--rose2:#46242f;--sage:#8cc59b;--sage2:#233629;--line:#43303a}}
+:root[data-theme="dark"]{--bg:#201519;--card:#2c1d23;--ink:#f7e9ee;--mut:#b99ba7;--rose:#ef7aa3;--rose2:#46242f;--sage:#8cc59b;--sage2:#233629;--line:#43303a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 15px/1.4 Nunito,system-ui,sans-serif;padding-bottom:84px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;margin:0}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);display:flex;align-items:center;gap:10px;padding:12px 16px;max-width:560px;margin:auto}
+header h1{font-size:22px;color:var(--rose);flex:1}
+.ib{border:0;background:var(--rose2);color:var(--rose);width:38px;height:38px;border-radius:50%;font:800 17px Nunito;cursor:pointer}
+main{max-width:560px;margin:auto;padding:4px 16px}
+.hd h2{font-size:26px}.hd p{margin:2px 0 12px;color:var(--mut)}a{color:var(--rose);font-weight:800;cursor:pointer}
+.st{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.st div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 4px;text-align:center}
+.st b{display:block;font:700 18px Fraunces,Georgia,serif;color:var(--rose)}.st small{color:var(--mut);font-size:11px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:2px 0 10px}
+.chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:20px;padding:6px 11px;font:700 13px Nunito;cursor:pointer}
+.chip.on{background:var(--rose);color:#fff;border-color:var(--rose)}
+.row{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:8px}
+.row.dn .tx{opacity:.5;text-decoration:line-through}
+.ck{flex:none;width:28px;height:28px;border-radius:50%;border:2px solid var(--rose);background:none;color:#fff;font-weight:800;cursor:pointer}
+.dn .ck{background:var(--sage);border-color:var(--sage)}
+.tx{flex:1;min-width:0;cursor:pointer}.tx b{display:block;overflow-wrap:anywhere}.tx small{color:var(--mut)}
+.x{border:0;background:none;color:var(--mut);font-size:22px;cursor:pointer}
+.empty{text-align:center;color:var(--mut);padding:36px 10px}
+.fab{position:fixed;right:max(16px,calc(50% - 264px));bottom:calc(76px + env(safe-area-inset-bottom,0px));width:54px;height:54px;border-radius:50%;border:0;background:var(--rose);color:#fff;font:700 30px/1 Nunito;box-shadow:0 6px 18px #d4477d66;cursor:pointer;z-index:8}
+nav{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav div{display:flex;max-width:560px;margin:auto}
+nav button{flex:1;border:0;background:none;color:var(--mut);padding:8px 0 7px;font:700 11px Nunito;cursor:pointer}
+nav button span{display:block;font-size:20px}nav button.on{color:var(--rose)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px}
+.card h3{font-size:17px;margin-bottom:8px}.card p{margin:4px 0;color:var(--mut)}
+.btn{border:0;border-radius:12px;background:var(--rose);color:#fff;padding:10px 14px;font:800 14px Nunito;cursor:pointer;margin:4px 6px 0 0}
+.btn.g{background:var(--rose2);color:var(--rose)}
+.wr{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:8px;cursor:pointer}
+.wr.now{border-color:var(--rose)}.wd{width:42px;text-align:center}.wd b{display:block}.wd span{font:700 20px Fraunces,Georgia,serif;color:var(--rose)}
+.wm{flex:1;min-width:0}.bar{height:7px;border-radius:9px;background:var(--rose2);overflow:hidden}.bar i{display:block;height:100%;background:var(--sage)}
+.dots{margin-top:4px;font-size:14px;min-height:20px}em{color:var(--mut);font-size:12px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal u{text-decoration:none;font:800 11px Nunito;color:var(--mut)}
+.cal button{aspect-ratio:1;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;font:700 14px Nunito;cursor:pointer;position:relative}
+.cal button.some{background:var(--rose2)}.cal button.all{background:var(--sage2)}.cal button.now{outline:2px solid var(--rose)}
+.cal button i{position:absolute;bottom:3px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--rose)}.cal button.all i{background:var(--sage)}
+.nv{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.nv h2{font-size:22px}
+.ring{display:flex;align-items:center;gap:14px}.ring svg{flex:none}.ring b{font:700 24px Fraunces,Georgia,serif}
+.cs{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed var(--line)}
+input,select{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:10px;font:600 15px Nunito;margin:4px 0 8px}
+.ml{display:grid;grid-template-columns:44px 1fr 1fr 1fr;gap:4px;align-items:center;margin-bottom:6px}
+.ml input{margin:0;padding:8px 6px;font-size:13px}.ml b{font-size:13px}.ml small{color:var(--mut);text-align:center;font-size:11px}
+#sh{position:fixed;inset:0;background:#0007;z-index:20;display:none;align-items:flex-end;justify-content:center}
+#sh.on{display:flex}
+.sheet{background:var(--card);width:100%;max-width:560px;max-height:90vh;overflow:auto;border-radius:22px 22px 0 0;padding:16px 16px calc(20px + env(safe-area-inset-bottom,0px))}
+.sheet .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}.sheet h2{font-size:22px}
+.cats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.step{background:var(--sage2);border-radius:12px;padding:10px;margin:6px 0}
+#ts{position:fixed;top:calc(56px + env(safe-area-inset-top,0px));left:0;right:0;z-index:30;display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none}
+.t{pointer-events:auto;background:var(--ink);color:var(--bg);border-radius:14px;padding:10px 12px;max-width:92%;display:flex;gap:10px;align-items:center;box-shadow:0 6px 20px #0004}
+.t button{border:0;background:none;color:var(--gold);font:800 14px Nunito;cursor:pointer}
+</style></head><body>
+<header><span id="lg"></span><h1>Mama Chores</h1><button class="ib" onclick="guide()" aria-label="Guide">?</button></header>
+<main id="v"></main><p style="text-align:center;color:var(--mut);font-size:11px;margin:6px 0 0">© Mama Chores · personal use only</p>
+<button class="fab" onclick="sheetT()" aria-label="Add">+</button>
+<nav><div id="nv"></div></nav>
+<div id="sh" onclick="if(event.target===this)closeS()"><div class="sheet" id="sb"></div></div>
+<div id="ts"></div>
+<script>
+const C={cook:['🍳','Cooking'],clean:['🧹','Cleaning'],groc:['🛒','Grocery'],school:['🎒','School run'],appt:['📅','Appointment'],event:['🎉','Event'],hol:['🌴','Holiday'],other:['📌','Other']};
+const REP={d:'Weekdays',w:'Weekly',y:'Yearly'},DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const p2=n=>String(n).padStart(2,'0'),ymd=d=>d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate()),P=s=>new Date(s+'T00:00:00');
+const addD=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fm=t=>{const[h,m]=t.split(':');return(h%12||12)+':'+m+(h<12?' AM':' PM')};
+const fmD=s=>P(s).toLocaleDateString(undefined,{weekday:'long',day:'numeric',month:'long'});
+const TD=ymd(new Date());let sel=TD,tab='today',filt='all',sc='other',lastDel=null;
+function seed(){return{t:[
+{id:'a1',title:'School drop-off',cat:'school',date:TD,time:'08:00',rep:'d',rem:30,dn:{}},
+{id:'a2',title:'School pick-up',cat:'school',date:TD,time:'15:00',rep:'d',rem:30,dn:{}},
+{id:'a3',title:'Dentist appointment',cat:'appt',date:ymd(addD(new Date(),1)),time:'10:30',rep:'',rem:1440,dn:{}},
+{id:'a4',title:'Birthday party 🎂 (buy a gift)',cat:'event',date:ymd(addD(new Date(),6)),time:'16:00',rep:'y',rem:10080,dn:{}}],
+m:{0:{b:'Pancakes + berries',l:'Chicken wrap',d:'Pasta + cheese'},1:{b:'Oats + banana',l:'Rice + lentils',d:'Chicken curry'}},g:[],n:{}}}
+let S;try{S=JSON.parse(localStorage.getItem('mc2'))}catch(e){}S=S||seed();
+const save=()=>{try{localStorage.setItem('mc2',JSON.stringify(S))}catch(e){}clearTimeout(window.__s);window.__s=setTimeout(syncPush,1500)};
+const done=(t,d)=>t.dn&&t.dn[d];
+function tasksOn(ds){const d=P(ds),w=d.getDay();return S.t.filter(t=>{if(t.date===ds)return true;if(ds<t.date||!t.rep)return false;
+if(t.rep==='d')return w>0&&w<6;if(t.rep==='w')return P(t.date).getDay()===w;if(t.rep==='y')return t.date.slice(5)===ds.slice(5);return false}).sort((a,b)=>(a.time||'99').localeCompare(b.time||'99'))}
+function st(ds){let T=0,D=0;ds.forEach(d=>{const L=tasksOn(d);T+=L.length;D+=L.filter(t=>done(t,d)).length});return[D,T]}
+const mon=s=>{const d=P(s);return addD(d,-((d.getDay()+6)%7))};
+const wkDays=s=>[...Array(7)].map((_,i)=>ymd(addD(mon(s),i)));
+const moDays=s=>{const y=+s.slice(0,4),m=+s.slice(5,7)-1;return[...Array(new Date(y,m+1,0).getDate())].map((_,i)=>y+'-'+p2(m+1)+'-'+p2(i+1))};
+const pct=a=>a[1]?Math.round(a[0]/a[1]*100):0;
+function streak(){let n=0,d=new Date();for(let i=0;i<365;i++){const ds=ymd(d),L=tasksOn(ds);if(L.length){if(L.every(t=>done(t,ds)))n++;else if(ds!==TD)break}d=addD(d,-1)}return n}
+const flower=(s=30)=>`<svg width="${s}" height="${s}" viewBox="-50 -50 100 100">${[0,60,120,180,240,300].map(a=>`<ellipse rx="14" ry="24" cy="-24" transform="rotate(${a})" fill="#f48fb1"/>`).join('')}<circle r="13" fill="#f2b84b"/></svg>`;
+function icon(){try{const c=document.createElement('canvas');c.width=c.height=180;const x=c.getContext('2d'),g=x.createLinearGradient(0,0,180,180);g.addColorStop(0,'#ffd6e4');g.addColorStop(1,'#f7a9c4');x.fillStyle=g;x.fillRect(0,0,180,180);x.translate(90,90);
+for(let i=0;i<8;i++){x.rotate(Math.PI/4);x.beginPath();x.ellipse(0,-40,17,31,0,0,7);x.fillStyle=i%2?'#fff':'#fff4f8';x.fill();x.strokeStyle='#e9799f';x.lineWidth=2;x.stroke()}
+x.beginPath();x.arc(0,0,19,0,7);x.fillStyle='#f2b84b';x.fill();const u=c.toDataURL('image/png');$('ic').href=u;$('ai').href=u;window.ICON=u}catch(e){}}
+const $=i=>document.getElementById(i);
+function toast(h,ms=7000){const e=document.createElement('div');e.className='t';e.innerHTML='<span>'+h+'</span><button onclick="this.parentNode.remove()">✕</button>';$('ts').appendChild(e);setTimeout(()=>e.remove(),ms)}
+function notify(t,b,tag){toast('🔔 <b>'+esc(t)+'</b> — '+esc(b),12000);if(window.Notification&&Notification.permission==='granted'){const o={body:b,icon:'icon-192.png',badge:'icon-192.png',tag},f=()=>{try{new Notification(t,o)}catch(e){}};if(navigator.serviceWorker)navigator.serviceWorker.getRegistration().then(r=>r?r.showNotification(t,o):f()).catch(f);else f()}}
+function check(){const now=Date.now();let any=0;for(let i=-1;i<=8;i++){const ds=ymd(addD(new Date(),i));tasksOn(ds).forEach(t=>{if(t.rem<0||done(t,ds))return;const dt=new Date(ds+'T'+(t.time||'09:00')).getTime(),due=dt-t.rem*6e4,k=t.id+'|'+ds;
+if(now>=due&&now<dt+36e5&&!S.n[k]){S.n[k]=1;any=1;notify(t.title,(t.rem?remTxt(t.rem)+' · ':'Now · ')+(t.time?fm(t.time):'today'),k)}})}
+if(Object.keys(S.n).length>400)S.n={};if(any)save()}
+const remTxt=m=>m>=10080?'In 1 week':m>=1440?'Tomorrow':m>=60?'In 1 hour':'In '+m+' min';
+function setTab(t){tab=t;render();scrollTo(0,0)}
+function go(d){sel=d;tab='today';render();scrollTo(0,0)}
+function render(){
+$('nv').innerHTML=[['today','☀️','Today'],['week','🗓️','Week'],['month','📆','Month'],['meals','🍳','Meals'],['events','🎉','Events']].map(([k,i,l])=>`<button class="${tab===k?'on':''}" onclick="setTab('${k}')"><span>${i}</span>${l}</button>`).join('');
+$('v').innerHTML={today:vToday,week:vWeek,month:vMonth,meals:vMeals,events:vEvents}[tab]();$('lg').innerHTML=flower(30)}
+function stats(){const w=st(wkDays(TD)),m=st(moDays(TD)),t=st([TD]);return`<div class="st"><div><b>${t[0]}/${t[1]}</b><small>Today</small></div><div><b>${pct(w)}%</b><small>Week</small></div><div><b>${pct(m)}%</b><small>Month</small></div><div><b>🔥${streak()}</b><small>Streak</small></div></div>`}
+function row(t){const d=done(t,sel);return`<div class="row ${d?'dn':''}"><button class="ck" onclick="tg('${t.id}')">${d?'✓':''}</button><div class="tx" onclick="sheetT('${t.id}')"><b>${C[t.cat][0]} ${esc(t.title)}</b><small>${t.time?fm(t.time):'Any time'}${t.rep?' · ↻ '+REP[t.rep]:''}${t.rem>=0?' · 🔔':''}</small></div><button class="x" onclick="del('${t.id}')">×</button></div>`}
+function vToday(){const L=tasksOn(sel).filter(t=>filt==='all'||t.cat===filt),isT=sel===TD;
+return`<div class="hd"><h2>${isT?'Today':fmD(sel)}</h2><p>${isT?fmD(sel):'<a onclick="go(TD)">← Back to today</a>'}</p></div>${stats()}<div class="chips"><button class="chip ${filt==='all'?'on':''}" onclick="filt='all';render()">All</button>${Object.entries(C).map(([k,v])=>`<button class="chip ${filt===k?'on':''}" onclick="filt='${k}';render()">${v[0]} ${v[1]}</button>`).join('')}</div>${L.length?L.map(row).join(''):'<div class="empty">🌸 Nothing planned here.<br>Tap + to add something.</div>'}`}
+function tg(id){const t=S.t.find(x=>x.id===id);t.dn=t.dn||{};t.dn[sel]=!t.dn[sel];save();render()}
+function del(id){const i=S.t.findIndex(x=>x.id===id);lastDel=S.t.splice(i,1)[0];save();render();toast('Deleted <button onclick="undo()">Undo</button>',5000)}
+function undo(){if(lastDel){S.t.push(lastDel);lastDel=null;save();render()}}
+function summary(ds){const cc={};ds.forEach(d=>tasksOn(d).forEach(t=>{const c=cc[t.cat]=cc[t.cat]||[0,0];c[1]++;if(done(t,d))c[0]++}));
+return Object.keys(cc).length?Object.entries(cc).map(([k,v])=>`<div class="cs"><span>${C[k][0]} ${C[k][1]}</span><b>${v[0]}/${v[1]} done</b></div>`).join(''):'<p>No tasks yet.</p>'}
+function ring(a){const r=34,c=2*Math.PI*r;return`<svg width="84" height="84" viewBox="0 0 84 84"><circle cx="42" cy="42" r="${r}" fill="none" stroke="var(--rose2)" stroke-width="9"/><circle cx="42" cy="42" r="${r}" fill="none" stroke="var(--sage)" stroke-width="9" stroke-linecap="round" stroke-dasharray="${c*pct(a)/100} ${c}" transform="rotate(-90 42 42)"/></svg>`}
+function vWeek(){const ds=wkDays(sel),w=st(ds);const rows=ds.map((d,i)=>{const L=tasksOn(d),n=L.filter(t=>done(t,d)).length;return`<div class="wr ${d===TD?'now':''}" onclick="go('${d}')"><div class="wd"><b>${DAYS[i]}</b><span>${+d.slice(8)}</span></div><div class="wm"><div class="bar"><i style="width:${L.length?n/L.length*100:0}%"></i></div><div class="dots">${[...new Set(L.map(t=>C[t.cat][0]))].join(' ')||'<em>free day</em>'}</div></div><small>${n}/${L.length}</small></div>`}).join('');
+return`<div class="nv"><button class="ib" onclick="sel=ymd(addD(P(sel),-7));render()">‹</button><h2>${P(ds[0]).getDate()} ${MN[P(ds[0]).getMonth()].slice(0,3)} – ${P(ds[6]).getDate()} ${MN[P(ds[6]).getMonth()].slice(0,3)}</h2><button class="ib" onclick="sel=ymd(addD(P(sel),7));render()">›</button></div>${rows}<div class="card"><h3>This week's record</h3><div class="ring">${ring(w)}<div><b>${pct(w)}%</b><p>${w[0]} of ${w[1]} tasks done</p></div></div>${summary(ds)}</div>`}
+function vMonth(){const y=+sel.slice(0,4),m=+sel.slice(5,7)-1,ds=moDays(sel),off=(new Date(y,m,1).getDay()+6)%7,mo=st(ds);
+const cells=Array(off).fill('<span></span>').concat(ds.map(d=>{const L=tasksOn(d),n=L.filter(t=>done(t,d)).length;return`<button class="${L.length?(n===L.length?'all':'some'):''} ${d===TD?'now':''}" onclick="go('${d}')">${+d.slice(8)}${L.length?'<i></i>':''}</button>`}));
+return`<div class="nv"><button class="ib" onclick="sel=ymd(new Date(${y},${m-1},1));render()">‹</button><h2>${MN[m]} ${y}</h2><button class="ib" onclick="sel=ymd(new Date(${y},${m+1},1));render()">›</button></div><div class="card"><div class="cal">${DAYS.map(d=>`<u>${d[0]}</u>`).join('')}${cells.join('')}</div><p>🟢 all done · 🌸 still to do · tap a day to open it</p></div><div class="card"><h3>Monthly record</h3><div class="ring">${ring(mo)}<div><b>${pct(mo)}%</b><p>${mo[0]} of ${mo[1]} tasks done</p></div></div>${summary(ds)}</div>`}
+const ING={pancake:['Flour','Eggs','Milk'],oat:['Oats','Milk'],egg:['Eggs'],toast:['Bread','Butter'],bread:['Bread'],pasta:['Pasta','Pasta sauce','Cheese'],rice:['Rice'],lentil:['Lentils'],dal:['Lentils'],chicken:['Chicken'],curry:['Onions','Tomatoes','Spices'],salad:['Lettuce','Cucumber','Tomatoes'],wrap:['Wraps'],sandwich:['Bread','Cheese'],soup:['Vegetables','Stock'],fish:['Fish','Lemon'],mince:['Mince'],beef:['Beef'],potato:['Potatoes'],yogurt:['Yogurt'],banana:['Bananas'],berr:['Berries'],roti:['Flour'],paratha:['Flour','Butter'],cheese:['Cheese'],milk:['Milk'],pizza:['Pizza dough','Cheese','Tomato sauce']};
+function mset(d,k,v){S.m[d]=S.m[d]||{};S.m[d][k]=v;save()}
+function vMeals(){return`<div class="hd"><h2>Meal planner</h2><p>Plan the week, then build your grocery list.</p></div>${DAYS.map((n,i)=>{const m=S.m[i]||{};return`<div class="ml"><b>${n}</b>${[['b','Breakfast'],['l','Lunch'],['d','Dinner']].map(([k,l])=>`<input placeholder="${l}" value="${esc(m[k]||'')}" onchange="mset(${i},'${k}',this.value)">`).join('')}</div>`}).join('')}
+<button class="btn" onclick="autoG()">🪄 Auto-make grocery list</button><div class="card" style="margin-top:14px"><h3>🛒 Grocery list</h3><div class="two"><input id="gi" placeholder="Add an item" onkeydown="if(event.key==='Enter')addG()"><button class="btn" style="margin:4px 0 8px" onclick="addG()">Add</button></div>${S.g.length?S.g.map((g,i)=>`<div class="row ${g.d?'dn':''}"><button class="ck" onclick="S.g[${i}].d=!S.g[${i}].d;save();render()">${g.d?'✓':''}</button><div class="tx"><b>${esc(g.t)}</b>${g.s?`<small>for ${g.s}</small>`:''}</div><button class="x" onclick="S.g.splice(${i},1);save();render()">×</button></div>`).join('')+'<button class="btn g" onclick="S.g=S.g.filter(g=>!g.d);save();render()">Clear bought items</button>':'<p>Empty. Add items or auto-make from your meals.</p>'}</div>`}
+function addG(){const v=$('gi').value.trim();if(v){S.g.push({t:v,d:0});save();render()}}
+function autoG(){let add=0;const have=new Set(S.g.map(g=>g.t.toLowerCase()));DAYS.forEach((n,i)=>Object.values(S.m[i]||{}).forEach(meal=>meal.split(/\+|,|&| and /i).map(s=>s.trim()).filter(Boolean).forEach(tok=>{const l=tok.toLowerCase(),hit=Object.keys(ING).filter(k=>l.includes(k)),items=hit.length?hit.flatMap(k=>ING[k]):[tok[0].toUpperCase()+tok.slice(1)];
+items.forEach(it=>{if(!have.has(it.toLowerCase())){have.add(it.toLowerCase());S.g.push({t:it,d:0,s:n});add++}})})));save();render();toast(add?'Added '+add+' items to your list 🛒':'Your list already has everything. Add meals first.')}
+function vEvents(){const ok=window.Notification,pm=ok?Notification.permission:'none';const up=[];for(let i=0;i<=7;i++){const ds=ymd(addD(new Date(),i));tasksOn(ds).forEach(t=>{if(t.rem>=0&&!done(t,ds))up.push([ds,t])})}
+const ev=[];for(let i=0;i<=90;i++){const ds=ymd(addD(new Date(),i));tasksOn(ds).forEach(t=>{if(t.cat==='event'||t.cat==='hol')ev.push([ds,t])})}
+const li=([d,t],r)=>`<div class="row"><div class="tx" onclick="sheetT('${t.id}')"><b>${C[t.cat][0]} ${esc(t.title)}</b><small>${d===TD?'Today':fmD(d)}${t.time?' · '+fm(t.time):''}${r&&t.rem>=0?' · 🔔 '+(t.rem?remTxt(t.rem).toLowerCase():'at the time'):''}</small></div></div>`;
+return`<div class="hd"><h2>Events &amp; reminders</h2><p>Birthdays, parties, holidays and alerts.</p></div><div class="card"><h3>🔔 Phone alerts</h3><p>${pm==='granted'?'Alerts are ON.':pm==='denied'?'Alerts are blocked. Allow notifications for this site in your browser settings.':ok?'Turn on alerts to get reminders.':'This browser does not support alerts. Reminders still show inside the app.'}</p>${ok&&pm!=='granted'&&pm!=='denied'?'<button class="btn" onclick="Notification.requestPermission().then(()=>{render();syncPush()})">Enable alerts</button>':''}<button class="btn g" onclick="notify('Test reminder','Alerts are working 🌸')">Send a test</button><p><small>Alerts reach your notification bar even when the app is closed. To do this, your reminder titles and times are stored on our server. Nothing else is shared. Open the app online after changing tasks so they sync.<br>Server sync: ${window.syncSt||'not synced yet'}</small></p></div>
+<div class="card"><h3>⏰ Reminders in the next 7 days</h3>${up.length?up.map(x=>li(x,1)).join(''):'<p>No reminders set. Add one with the + button.</p>'}</div>
+<div class="card"><h3>🎂 Birthdays, parties &amp; holidays</h3>${ev.length?ev.slice(0,15).map(x=>li(x)).join(''):'<p>Nothing coming up. Add an Event or Holiday.</p>'}<button class="btn" onclick="sheetT(null,'event')">+ Add event</button></div>
+<div class="card"><h3>📲 Install</h3><p>Put the flower icon on your home screen.</p><button class="btn g" onclick="guide()">Home screen steps</button></div>`}
+function sheet(h){$('sb').innerHTML=h;$('sh').classList.add('on')}
+function closeS(){$('sh').classList.remove('on')}
+const REM=[[-1,'No reminder'],[0,'At the time'],[30,'30 min before'],[60,'1 hour before'],[1440,'1 day before'],[10080,'1 week before']];
+function sheetT(id,cat){const n=id?S.t.find(x=>x.id===id):{title:'',cat:cat||'other',date:sel,time:'',rep:'',rem:-1};sc=n.cat;window.eid=id;
+sheet(`<div class="top"><h2>${id?'Edit':'Add'} task</h2><button class="ib" onclick="closeS()">✕</button></div><input id="ti" placeholder="What needs doing?" value="${esc(n.title)}"><div class="cats" id="cats">${Object.entries(C).map(([k,v])=>`<button class="chip ${k===sc?'on':''}" data-k="${k}" onclick="pick('${k}')">${v[0]} ${v[1]}</button>`).join('')}</div>
+<div class="two"><div>Date<input type="date" id="di" value="${n.date}"></div><div>Time<input type="time" id="tm" value="${n.time}"></div></div>
+<div class="two"><div>Repeat<select id="rp">${[['','Does not repeat'],['d','Weekdays'],['w','Weekly'],['y','Every year']].map(([v,l])=>`<option value="${v}" ${v===n.rep?'selected':''}>${l}</option>`).join('')}</select></div><div>Remind me<select id="rm">${REM.map(([v,l])=>`<option value="${v}" ${v===n.rem?'selected':''}>${l}</option>`).join('')}</select></div></div>
+<button class="btn" onclick="saveT()">Save</button><button class="btn g" onclick="closeS()">Cancel</button>`)}
+function pick(k){sc=k;document.querySelectorAll('#cats .chip').forEach(b=>b.classList.toggle('on',b.dataset.k===k));if(!window.eid){const r={event:1440,school:30,appt:60}[k];if(r!==undefined)$('rm').value=r}}
+function saveT(){const title=$('ti').value.trim();if(!title){$('ti').focus();return}const o={title,cat:sc,date:$('di').value||TD,time:$('tm').value,rep:$('rp').value,rem:+$('rm').value};
+if(window.eid)Object.assign(S.t.find(x=>x.id===window.eid),o);else S.t.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,5),dn:{},...o});save();closeS();render();check();if(o.rem>=0&&window.Notification&&Notification.permission==='default')toast('Reminder saved. Enable phone alerts in the <b>Events</b> tab.')}
+function b64u(s){const p='='.repeat((4-s.length%4)%4),r=atob((s+p).replace(/-/g,'+').replace(/_/g,'/'));return Uint8Array.from(r,c=>c.charCodeAt(0))}
+function remList(){const now=Date.now(),o=[];for(let i=0;i<=60;i++){const ds=ymd(addD(new Date(),i));tasksOn(ds).forEach(t=>{if(t.rem<0||done(t,ds))return;const dt=new Date(ds+'T'+(t.time||'09:00')).getTime(),at=dt-t.rem*6e4;if(at>now)o.push({id:t.id+'|'+ds,at,t:t.title,b:(t.rem?remTxt(t.rem)+' · ':'Now · ')+(t.time?fm(t.time):'today')})})}return o.sort((a,b)=>a.at-b.at).slice(0,400)}
+async function syncPush(){try{if(!window.Notification||Notification.permission!=='granted'||!navigator.serviceWorker||!window.PushManager||!navigator.onLine)return;const reg=await navigator.serviceWorker.getRegistration();if(!reg){window.syncSt='no service worker';return}await navigator.serviceWorker.ready;let sub=await reg.pushManager.getSubscription();
+if(!sub){const k=(await(await fetch('/api/key')).text()).trim();if(!k){window.syncSt='server keys missing';return}sub=await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64u(k)})}
+const r=await fetch('/api/subscribe',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({sub:sub.toJSON(),rem:remList()})});window.syncSt=r.ok?'✓ synced':'server error '+r.status}catch(e){window.syncSt='failed: '+(e.message||e)}if(tab==='events')render()}
+function guide(){sheet(`<div class="top"><h2>${flower(26)} How it works</h2><button class="ib" onclick="closeS()">✕</button></div>
+<p><b>☀️ Today</b> shows one day's tasks by time. Tick them off, filter by category, tap a task to edit it.</p>
+<p><b>🗓️ Week</b> shows Mon–Sun with progress bars and category icons. Tap a day to open it.</p>
+<p><b>📆 Month</b> is a calendar (green = all done) with your monthly percentage and a per-category record.</p>
+<p><b>🍳 Meals</b> is breakfast, lunch and dinner for each day. “Auto-make grocery list” turns them into a shopping list.</p>
+<p><b>🎉 Events</b> lists birthdays, parties and holidays, your upcoming reminders and the alert switch.</p>
+<p>Alerts reach your notification bar even when the app is closed. Turn them on in the <b>Events</b> tab.</p><p>Use <b>Repeat</b> for school runs and <b>Every year</b> for birthdays. Everything is saved on your phone. No login.</p>
+<h3 style="margin-top:12px">📲 Add the flower icon to your home screen</h3>
+<div class="step"><b>iPhone:</b> open the link in <b>Safari</b> → tap Share ⬆️ → <b>Add to Home Screen</b> → Add.</div>
+<div class="step"><b>Android:</b> open in <b>Chrome</b> → tap ⋮ → <b>Add to Home screen</b> / Install app.</div>
+<p>Opened from Instagram, Facebook or Pinterest? Tap the menu and choose <b>Open in browser</b> first.</p>
+<p><small>© Mama Chores. Personal use only. Please do not share or resell your link.</small></p><button class="btn" onclick="closeS()">Got it</button>`)}
+function share(){const u=location.href;if(navigator.share)navigator.share({title:'Mama Chores',text:'A planner for busy mamas 🌸',url:u}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(u).then(()=>toast('Link copied 🌸'),()=>toast('Copy the link from your browser address bar'));else toast('Copy the link from your browser address bar')}
+if('serviceWorker' in navigator){try{navigator.serviceWorker.register('sw.js').catch(()=>{})}catch(e){}}
+icon();render();check();syncPush();setInterval(check,30000);document.addEventListener('visibilitychange',()=>{if(!document.hidden){check();render();syncPush()}});
+</script></body></html>
